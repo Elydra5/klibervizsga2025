@@ -1,0 +1,25 @@
+<div class="container my-5" *ngIf="selectedChef">
+  <h2 class="mb-4">{{ selectedChef.name }} Bérlése</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <img [src]="selectedChef.image" class="img-fluid rounded shadow-sm" [alt]="selectedChef.name">
+    </div>
+    <div class="col-md-8">
+      <p>{{ selectedChef.description }}</p>
+      <p><strong>Alap Díj:</strong> {{ selectedChef.base_fee }}</p>
+      <p><strong>Napi Díj:</strong> {{ selectedChef.daily_rate }}</p>
+
+      <form (ngSubmit)="submitBerles()">
+        <div class="mb-3">
+          <label class="form-label">Bérlés kezdete:</label>
+          <input type="date" [(ngModel)]="startDate" name="startDate" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Bérlés vége:</label>
+          <input type="date" [(ngModel)]="endDate" name="endDate" class="form-control" required>
+        </div>
+        <button class="btn btn-success">Lefoglalom</button>
+      </form>
+    </div>
+  </div>
+</div>
